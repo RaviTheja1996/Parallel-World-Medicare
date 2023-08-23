@@ -1,8 +1,8 @@
 import { createContext, useState } from "react";
 
-export const ThemeContext = createContext(null);
+export const ThemeContext = createContext();
 
-export default function ThemeContextProvider({ children }) {
+export function ThemeContextProvider({ children }) {
   const [themeDetails, setThemeDetails] = useState("light");
 
   function toggleTheme() {
