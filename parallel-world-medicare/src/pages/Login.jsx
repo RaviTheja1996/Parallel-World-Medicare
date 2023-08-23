@@ -1,16 +1,20 @@
+import React from "react";
 import {
-  Input,
+  Button,
   FormControl,
   FormLabel,
+  Input,
   FormHelperText,
 } from "@chakra-ui/react";
 
-export default function Login() {
+export const Login = () => {
   return (
-    <FormControl>
-      <FormLabel>Email address</FormLabel>
-      <Input type="email" />
-      <FormHelperText>We'll never share your email.</FormHelperText>
-    </FormControl>
+    <div>
+      <FormControl>
+        <FormLabel>Email address</FormLabel>
+        <Input type="email" />
+        <FormHelperText>We'll never share your email.</FormHelperText>
+      </FormControl>
+    </div>
   );
-}
+};

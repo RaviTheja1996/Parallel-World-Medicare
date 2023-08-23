@@ -7,7 +7,8 @@ import Diagnostics from "../pages/Diagnostics";
 import Doctors from "../pages/Doctors";
 import Hospitals from "../pages/Hospitals";
 import Plans from "../pages/Plans";
-import Login from "../pages/Login";
+import { Login } from "../pages/Login";
+// import Login from "../pages/Login";
 
 export default function AllRoutes() {
   return (
