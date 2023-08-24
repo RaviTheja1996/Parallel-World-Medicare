@@ -14,9 +14,29 @@ export default function Navbar() {
   };
 
   return (
-    <Flex align="center" backgroundColor="gray.900" color="gray.50" p={4}>
-      <Image src="../Images/parallel-world-medicare-high-resolution-color-logo.png"></Image>
+    <Flex align="center" p={4}>
+      <Image src="parallel-world-medicare-logo.png" alt="logo"></Image>
       <Spacer></Spacer>
+      <HStack>
+        <ChakraLink as={ReactRouterLink} to="/">
+          Home
+        </ChakraLink>
+        <ChakraLink as={ReactRouterLink} to="/Plans">
+          Health Plans
+        </ChakraLink>
+        <ChakraLink as={ReactRouterLink} to="/about">
+          About
+        </ChakraLink>
+        {authDetails.isAuth ? (
+          <Button onClick={handleLogout} variant="outline">
+            Logout
+          </Button>
+        ) : (
+          <ChakraLink as={ReactRouterLink} to="/login">
+            Login
+          </ChakraLink>
+        )}
+      </HStack>
     </Flex>
     // <>
     //   <NavLink to="/">Home</NavLink>
