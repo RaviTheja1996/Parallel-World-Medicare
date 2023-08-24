@@ -8,6 +8,7 @@ import Doctors from "../pages/Doctors";
 import Hospitals from "../pages/Hospitals";
 import Plans from "../pages/Plans";
 import { Login } from "../pages/Login";
+import Register from "../pages/Register";
 // import Login from "../pages/Login";
 
 export default function AllRoutes() {
@@ -23,6 +24,7 @@ export default function AllRoutes() {
         <Route path="/plans" element={<Plans />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
       </Routes>
     </>
   );
