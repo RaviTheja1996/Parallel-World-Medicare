@@ -29,7 +29,10 @@ export const Login = () => {
   return (
     <div>
       <Center>
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={handleSubmit}
+          style={{ maxWidth: "55%", margin: "auto" }}
+        >
           <FormControl>
             <FormLabel>Email address</FormLabel>
             <Input type="email" />
@@ -45,17 +48,22 @@ export const Login = () => {
               Login
             </Button>
           </FormControl>
+
+          <p style={{ marginTop: "2rem", fontSize: "18px" }}>
+            Not a User?
+            <br />
+            <span>
+              <ChakraLink
+                as={ReactRouterLink}
+                to="/register"
+                style={{ color: "black" }}
+              >
+                Register
+              </ChakraLink>
+            </span>
+          </p>
         </form>
       </Center>
-      <p>
-        Not a User?
-        <br />
-        <span>
-          <ChakraLink as={ReactRouterLink} to="/register">
-            Register
-          </ChakraLink>
-        </span>
-      </p>
     </div>
   );
 };

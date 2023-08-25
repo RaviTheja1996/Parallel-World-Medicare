@@ -14,25 +14,73 @@ export default function Navbar() {
   };
 
   return (
-    <Flex align="center" p={4}>
-      <Image src="parallel-world-medicare-logo.png" alt="logo"></Image>
+    <Flex
+      align="center"
+      bg="yellow"
+      justifyContent="space-around"
+      marginTop={2}
+    >
+      <Image
+        src="Navbar_logo_2.png"
+        alt="logo"
+        marginLeft="1rem"
+        w="250px"
+        h="90px"
+      ></Image>
       <Spacer></Spacer>
-      <HStack>
-        <ChakraLink as={ReactRouterLink} to="/">
+      <HStack spacing="3rem" marginRight="2rem" fontSize="20px">
+        <ChakraLink as={ReactRouterLink} to="/" style={{ color: "maroon" }}>
           Home
         </ChakraLink>
-        <ChakraLink as={ReactRouterLink} to="/Plans">
+        <ChakraLink
+          as={ReactRouterLink}
+          to="/Plans"
+          style={{ color: "maroon" }}
+        >
           Health Plans
         </ChakraLink>
-        <ChakraLink as={ReactRouterLink} to="/about">
+        <ChakraLink
+          as={ReactRouterLink}
+          to="/about"
+          style={{ color: "maroon" }}
+        >
           About
         </ChakraLink>
+        <ChakraLink
+          as={ReactRouterLink}
+          to="/diagnostics"
+          style={{ color: "maroon" }}
+        >
+          Diagnostics
+        </ChakraLink>
+        <ChakraLink
+          as={ReactRouterLink}
+          to="/hospitals"
+          style={{ color: "maroon" }}
+        >
+          Hospitals
+        </ChakraLink>
+        <ChakraLink
+          as={ReactRouterLink}
+          to="/doctors"
+          style={{ color: "maroon" }}
+        >
+          Doctors
+        </ChakraLink>
         {authDetails.isAuth ? (
-          <Button onClick={handleLogout} variant="outline">
+          <Button
+            onClick={handleLogout}
+            variant="outline"
+            style={{ color: "maroon" }}
+          >
             Logout
           </Button>
         ) : (
-          <ChakraLink as={ReactRouterLink} to="/login">
+          <ChakraLink
+            as={ReactRouterLink}
+            to="/login"
+            style={{ color: "maroon" }}
+          >
             Login
           </ChakraLink>
         )}
