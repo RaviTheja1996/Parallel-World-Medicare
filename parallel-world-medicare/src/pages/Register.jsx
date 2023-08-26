@@ -11,10 +11,11 @@ import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink, LinkProps } from "@chakra-ui/react";
 import axios from "../api/axios";
 import "../style_modules/register.css";
+import { addUser } from "../api/apiRequests";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,14}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,15}$/;
-const REGISTER_URL = `/register`;
+const REGISTER_URL = `/users`;
 
 const Register = () => {
   const userRef = useRef();
@@ -70,18 +71,19 @@ const Register = () => {
     // console.log(user, pwd);
     // setSuccess(true);
     try {
-      const response = await axios.post(
-        REGISTER_URL,
-        JSON.stringify(
-          { user, pwd },
-          {
-            headers: { "Content-type": "application/json" },
-            withCredentials: true,
-          }
-        )
-      );
-      console.log(response.data);
-      console.log(JSON.stringify(response));
+      // const response = await axios.post(
+      //   REGISTER_URL,
+      //   JSON.stringify(
+      //     { user, pwd },
+      //     {
+      //       headers: { "Content-type": "application/json" },
+      //       withCredentials: true,
+      //     }
+      //   )
+      // );
+      // console.log(response.data);
+      // console.log(JSON.stringify(response));
+      addUser({ user, pwd });
       setSuccess(true);
       // clear the input field values
     } catch (err) {
@@ -99,7 +101,7 @@ const Register = () => {
   return (
     <>
       {success ? (
-        <section className="formsection">
+        <section className="formsection" style={{ marginTop: "2rem" }}>
           <h1>Success!</h1>
           <p>
             <ChakraLink as={ReactRouterLink} to="/login">
@@ -108,7 +110,7 @@ const Register = () => {
           </p>
         </section>
       ) : (
-        <section className="formsection">
+        <section className="formsection" style={{ marginTop: "2rem" }}>
           <p
             ref={errRef}
             className={errMsg ? "errMsg" : "offscreen"}

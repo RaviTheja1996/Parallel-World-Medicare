@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {
   Image,
+  Flex,
   HStack,
   Heading,
   Box,
@@ -10,6 +11,8 @@ import {
   Grid,
   GridItem,
   AbsoluteCenter,
+  Button,
+  Spacer,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -23,11 +26,19 @@ import {
   faUserDoctor,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon, LinkIcon } from "@chakra-ui/icons";
 
 import "../style_modules/GridEffect.css";
+import { useNavigate } from "react-router-dom";
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "../style_modules/ImageCarousel.css";
+import ImageCarousel from "../components/ImageCarousel";
 
 export default function Home() {
+  const navigate = useNavigate();
+
   const HeroSection = styled.section`
     font-family: Nunito;
     display: flex;
@@ -85,15 +96,6 @@ export default function Home() {
     flex-direction: column;
   `;
 
-  const HoverEffect = styled.div`
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-    }
-  `;
-
   const GradientSection = styled.section`
     background: linear-gradient(
       to bottom right,
@@ -103,6 +105,8 @@ export default function Home() {
       #4caf50 100%
     );
   `;
+
+  const images = { c1: "c1.jpeg", c2: "c2.jpeg", c3: "c3.jpeg" };
 
   return (
     <>
@@ -385,6 +389,107 @@ export default function Home() {
             </HealthInfoSectionRightContent>
           </HealthInfoSection>
         </Center>
+      </section>
+      <section id="register" style={{ marginTop: "1rem" }}>
+        <Center>
+          <Box
+            w="80%"
+            m="auto"
+            style={{ display: "flex", flexDirection: "column", gap: "3rem" }}
+          >
+            <HStack>
+              <VStack spacing={4} w="65%" align="start">
+                <Text as="b" fontSize="4xl">
+                  <span style={{ color: "#084560" }}>The Future of</span>
+                  <br />
+                  <span style={{ color: "#ff8a01" }}>Quality</span>
+                  <span style={{ color: "#084560" }}> Your</span>
+                  <span style={{ color: "#ff8a01" }}> Health</span>
+                  <span style={{ color: "#084560" }}>.</span>
+                </Text>
+                <Text color="#084560">
+                  fostering a culture of open communication and learning is
+                  fundamental to a successful healthcare quality system.
+                </Text>
+              </VStack>
+              <Spacer />
+              <Button
+                className="button-element"
+                bg="#ff8a01"
+                color="white"
+                leftIcon={<LinkIcon />}
+                onClick={() => {
+                  navigate("/register");
+                }}
+                marginRight="4rem"
+              >
+                Register Now
+              </Button>
+            </HStack>
+            <Grid templateColumns="repeat(3, 1fr)" gap={1} h="30vh">
+              <GridItem
+                bg="#f8f8f8"
+                position="relative"
+                className="grid-element"
+              >
+                <AbsoluteCenter>
+                  <Text>
+                    <h1>Health Consultation</h1>
+                  </Text>
+                </AbsoluteCenter>
+              </GridItem>
+              <GridItem
+                bg="#f8f8f8"
+                position="relative"
+                className="grid-element"
+              >
+                <AbsoluteCenter>
+                  <Text>
+                    <h1>Finding Health Need</h1>
+                  </Text>
+                </AbsoluteCenter>
+              </GridItem>
+              <GridItem
+                bg="#f8f8f8"
+                position="relative"
+                className="grid-element"
+              >
+                <AbsoluteCenter>
+                  <Text>
+                    <h1>Star Health Care</h1>
+                  </Text>
+                </AbsoluteCenter>
+              </GridItem>
+            </Grid>
+          </Box>
+        </Center>
+      </section>
+      <section id="About" style={{ marginTop: "6rem" }}>
+        <Flex direction="column" align="center">
+          <Box w="60%">
+            <Center>
+              <Text fontSize="3xl" fontWeight="bold" mb={4}>
+                <span style={{ color: "#084560" }}>What </span>
+                <span style={{ color: "#ff8a01" }}>People Say</span>
+                <br />
+                <Center>
+                  <span style={{ color: "#084560" }}>About Us</span>
+                </Center>
+              </Text>
+            </Center>
+          </Box>
+          <Box
+            marginTop="2rem"
+            w="60%"
+            style={{ margin: "auto" }}
+            className="ImageCarousel"
+          >
+            <ImageCarousel images={images}></ImageCarousel>
+          </Box>
+        </Flex>
+      </section>
+      <section id="partners" style={{ marginTop: "2rem" }}>
+        <Image src="partners.png" style={{ margin: "auto" }}></Image>
       </section>
     </>
   );

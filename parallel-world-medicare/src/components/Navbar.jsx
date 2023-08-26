@@ -7,7 +7,7 @@ import { Link as ChakraLink } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 
 export default function Navbar() {
-  const { authDetails, login, logout } = useContext(AuthContext);
+  const { authDetails, logout } = useContext(AuthContext);
   console.log(authDetails);
   const handleLogout = () => {
     logout();
@@ -32,13 +32,13 @@ export default function Navbar() {
         <ChakraLink as={ReactRouterLink} to="/" style={{ color: "maroon" }}>
           Home
         </ChakraLink>
-        <ChakraLink
+        {/* <ChakraLink
           as={ReactRouterLink}
           to="/Plans"
           style={{ color: "maroon" }}
         >
           Health Plans
-        </ChakraLink>
+        </ChakraLink> */}
         <ChakraLink
           as={ReactRouterLink}
           to="/about"
