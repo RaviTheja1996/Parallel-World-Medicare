@@ -6,20 +6,46 @@ import {
   Input,
   FormHelperText,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink, LinkProps } from "@chakra-ui/react";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
+import { getUsers } from "../api/apiRequests";
 
 export const Login = () => {
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+
+  const userRef = useRef();
+  const errRef = useRef();
 
   const { authDetails, login, logout } = useContext(AuthContext);
 
-  function handleLogin(email, password) {
-    login(email, password);
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [username, password]);
+
+  function handleLogin() {
+    let users = getUsers();
+    let isValidCred = false;
+    // {
+    //   users.map((el) => {
+    //     for (let key in el) {
+    //       if (el.username === username && el.password === password) {
+    //         isValidCred = true;
+    //         break;
+    //       }
+    //     }
+    //   });
+    // }
   }
 
   function handleSubmit(e) {
@@ -27,17 +53,30 @@ export const Login = () => {
   }
 
   return (
-    <div>
-      <Center>
-        <form
-          onSubmit={handleSubmit}
-          style={{ maxWidth: "55%", margin: "auto" }}
+    <section style={{ marginTop: "2rem" }} className="login-form">
+      <Center></Center>
+      <Center marginTop="2rem" style={{ maxWidth: "50%", margin: "auto" }}>
+        {/* <Heading as="b" fontSize="xl">
+          Login
+        </Heading> */}
+        <p
+          ref={errRef}
+          className={errMsg ? "errMsg" : "offscreen"}
+          aria-live="assertive"
         >
+          {errMsg}
+        </p>
+        <form onSubmit={handleSubmit}>
           <FormControl>
-            <FormLabel>Email address</FormLabel>
-            <Input type="email" />
-            <FormHelperText>We'll never share your email.</FormHelperText>
-            <FormLabel marginTop={6}>Password</FormLabel>
+            <FormLabel>UserName :</FormLabel>
+            <Input
+              type="text"
+              ref={userRef}
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+            />
+            <FormLabel marginTop={6}>Password :</FormLabel>
             <Input
               type="password"
               onChange={(e) => {
@@ -64,6 +103,6 @@ export const Login = () => {
           </p>
         </form>
       </Center>
-    </div>
+    </section>
   );
 };

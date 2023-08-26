@@ -8,10 +8,10 @@ export function AuthContextProvider({ children }) {
     token: "",
   });
 
-  function login(token) {
+  function login() {
     setAuthDetails({
       isAuth: true,
-      token: token,
+      token: "",
     });
   }
 
