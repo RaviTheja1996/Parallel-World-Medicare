@@ -24,3 +24,10 @@ export const getUsers = () => {
         method: "get"
     }).then((res) => { return res.data });
 }
+
+export const getHospitals = () => {
+    return axios({
+        method: "get",
+        url: `${baseUrl}/hospitals`
+    });
+}

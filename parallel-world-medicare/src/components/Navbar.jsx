@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Flex, Spacer, Heading, HStack, Image } from "@chakra-ui/react";
+import { Flex, Spacer, Heading, HStack, Image, Text } from "@chakra-ui/react";
 import { AuthContext } from "../context/AuthContextProvider";
 import { useContext } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
@@ -68,13 +68,12 @@ export default function Navbar() {
           Doctors
         </ChakraLink>
         {authDetails.isAuth ? (
-          <Button
-            onClick={handleLogout}
-            variant="outline"
-            style={{ color: "maroon" }}
-          >
-            Logout
-          </Button>
+          <>
+            <Text style={{ color: "maroon" }}>{authDetails.name}</Text>
+            <ChakraLink onClick={handleLogout} style={{ color: "maroon" }}>
+              Logout
+            </ChakraLink>
+          </>
         ) : (
           <ChakraLink
             as={ReactRouterLink}

@@ -6,12 +6,14 @@ export function AuthContextProvider({ children }) {
   const [authDetails, setAuthDetails] = useState({
     isAuth: false,
     token: "",
+    name: "",
   });
 
-  function login() {
+  function login(name) {
     setAuthDetails({
       isAuth: true,
       token: "",
+      name: name,
     });
   }
 
@@ -19,6 +21,7 @@ export function AuthContextProvider({ children }) {
     setAuthDetails({
       isAuth: false,
       token: "",
+      name: "",
     });
   }
 

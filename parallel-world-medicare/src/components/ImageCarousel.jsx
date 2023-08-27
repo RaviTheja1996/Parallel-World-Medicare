@@ -5,8 +5,8 @@ const ImageCarousel = ({ images }) => {
   const { c1, c2, c3 } = { ...images };
   return (
     <Carousel showThumbs={false}>
-      <div>
-        <HStack w="40rem" h="16rem">
+      <div bg="grey">
+        <HStack w="100%" h="16rem" bg="#4AAC50">
           <img src={c1} alt="Img 1" />
           <Spacer />
           <Text fontSize="sm" as="b">
@@ -21,7 +21,7 @@ const ImageCarousel = ({ images }) => {
         </HStack>
       </div>
       <div>
-        <HStack w="40rem" h="16rem">
+        <HStack w="100%" h="16rem" bg="#4AAC50">
           <img src={c2} alt="Img 2" />
           <Spacer />
           <Text fontSize="sm" as="b">
@@ -36,7 +36,6 @@ const ImageCarousel = ({ images }) => {
           </Text>
         </HStack>
       </div>
-      {/* Add more images as needed */}
     </Carousel>
   );
 };
