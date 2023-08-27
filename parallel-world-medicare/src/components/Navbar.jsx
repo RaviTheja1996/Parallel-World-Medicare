@@ -9,7 +9,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { AuthContext } from "../context/AuthContextProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
@@ -19,6 +19,49 @@ import "../style_modules/navbar.css";
 export default function Navbar() {
   const navigate = useNavigate();
   const { authDetails, logout } = useContext(AuthContext);
+
+  const [homeLink, setHomeLink] = useState(true);
+  const [aboutLink, setAboutLink] = useState(false);
+  const [hospitalsLink, setHospitalsLink] = useState(false);
+  const [doctorsLink, setDoctorsLink] = useState(false);
+  const [loginLink, setLoginLink] = useState(false);
+
+  const handleHomeLink = () => {
+    setHomeLink(!homeLink);
+    setAboutLink(false);
+    setHospitalsLink(false);
+    setDoctorsLink(false);
+    setLoginLink(false);
+  };
+  const handleAboutLink = () => {
+    setHomeLink(false);
+    setAboutLink(!aboutLink);
+    setHospitalsLink(false);
+    setDoctorsLink(false);
+    setLoginLink(false);
+  };
+  const handleHospitalsLink = () => {
+    setHomeLink(false);
+    setAboutLink(false);
+    setHospitalsLink(!hospitalsLink);
+    setDoctorsLink(false);
+    setLoginLink(false);
+  };
+  const handleDoctorsLink = () => {
+    setHomeLink(false);
+    setAboutLink(false);
+    setHospitalsLink(false);
+    setDoctorsLink(!doctorsLink);
+    setLoginLink(false);
+  };
+  const handleLoginLink = () => {
+    setHomeLink(false);
+    setAboutLink(false);
+    setHospitalsLink(false);
+    setDoctorsLink(false);
+    setLoginLink(!loginLink);
+  };
+
   console.log(authDetails);
   const handleLogout = () => {
     logout();
@@ -51,7 +94,12 @@ export default function Navbar() {
         fontSize="1rem"
         className="healthCare__navbar-links_container"
       >
-        <ChakraLink as={ReactRouterLink} to="/" style={{ color: "maroon" }}>
+        <ChakraLink
+          as={ReactRouterLink}
+          to="/"
+          onClick={handleHomeLink}
+          style={{ color: homeLink ? "red" : "maroon" }}
+        >
           Home
         </ChakraLink>
         {/* <ChakraLink
@@ -64,7 +112,8 @@ export default function Navbar() {
         <ChakraLink
           as={ReactRouterLink}
           to="/about"
-          style={{ color: "maroon" }}
+          onClick={handleAboutLink}
+          style={{ color: aboutLink ? "red" : "maroon" }}
         >
           About
         </ChakraLink>
@@ -78,14 +127,16 @@ export default function Navbar() {
         <ChakraLink
           as={ReactRouterLink}
           to="/hospitals"
-          style={{ color: "maroon" }}
+          onClick={handleHospitalsLink}
+          style={{ color: hospitalsLink ? "red" : "maroon" }}
         >
           Hospitals
         </ChakraLink>
         <ChakraLink
           as={ReactRouterLink}
           to="/doctors"
-          style={{ color: "maroon" }}
+          onClick={handleDoctorsLink}
+          style={{ color: doctorsLink ? "red" : "maroon" }}
         >
           Doctors
         </ChakraLink>
@@ -100,7 +151,8 @@ export default function Navbar() {
           <ChakraLink
             as={ReactRouterLink}
             to="/login"
-            style={{ color: "maroon" }}
+            onClick={handleLoginLink}
+            style={{ color: loginLink ? "red" : "maroon" }}
             className="healthCare__navbar-login"
           >
             Login
