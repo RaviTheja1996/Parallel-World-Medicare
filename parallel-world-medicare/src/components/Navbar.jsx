@@ -1,12 +1,23 @@
-import { NavLink } from "react-router-dom";
-import { Flex, Spacer, Heading, HStack, Image, Text } from "@chakra-ui/react";
+import { NavLink, useNavigate } from "react-router-dom";
+import {
+  Flex,
+  Spacer,
+  Heading,
+  HStack,
+  Image,
+  Text,
+  Box,
+} from "@chakra-ui/react";
 import { AuthContext } from "../context/AuthContextProvider";
 import { useContext } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
+import { RiMenu3Line, RiCloseLin } from "react-icons/ri";
+import "../style_modules/navbar.css";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const { authDetails, logout } = useContext(AuthContext);
   console.log(authDetails);
   const handleLogout = () => {
@@ -17,18 +28,29 @@ export default function Navbar() {
     <Flex
       align="center"
       bg="yellow"
-      justifyContent="space-around"
+      justifyContent="space-between"
       marginTop={2}
+      className="healthCare__navbar"
     >
-      <Image
-        src="Navbar_logo_2.png"
-        alt="logo"
-        marginLeft="1rem"
-        w="250px"
-        h="90px"
-      ></Image>
+      <Box className="healthCare__navbar_logo">
+        <Image
+          src="Navbar_logo_2.png"
+          alt="logo"
+          w="330px"
+          h="90px"
+          onClick={() => {
+            navigate("/");
+          }}
+        ></Image>
+      </Box>
       <Spacer></Spacer>
-      <HStack spacing="3rem" marginRight="2rem" fontSize="20px">
+      <Flex
+        justifyContent="flex-start"
+        gap={8}
+        alignItems="center"
+        fontSize="1rem"
+        className="healthCare__navbar-links_container"
+      >
         <ChakraLink as={ReactRouterLink} to="/" style={{ color: "maroon" }}>
           Home
         </ChakraLink>
@@ -46,13 +68,13 @@ export default function Navbar() {
         >
           About
         </ChakraLink>
-        <ChakraLink
+        {/* <ChakraLink
           as={ReactRouterLink}
           to="/diagnostics"
           style={{ color: "maroon" }}
         >
           Diagnostics
-        </ChakraLink>
+        </ChakraLink> */}
         <ChakraLink
           as={ReactRouterLink}
           to="/hospitals"
@@ -79,11 +101,12 @@ export default function Navbar() {
             as={ReactRouterLink}
             to="/login"
             style={{ color: "maroon" }}
+            className="healthCare__navbar-login"
           >
             Login
           </ChakraLink>
         )}
-      </HStack>
+      </Flex>
     </Flex>
     // <>
     //   <NavLink to="/">Home</NavLink>

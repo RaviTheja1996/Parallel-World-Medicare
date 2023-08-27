@@ -25,9 +25,18 @@ export const getUsers = () => {
     }).then((res) => { return res.data });
 }
 
-export const getHospitals = () => {
+export const getHospitals = (params) => {
     return axios({
         method: "get",
-        url: `${baseUrl}/hospitals`
+        url: `${baseUrl}/hospitals`,
+        params: params
+    });
+}
+
+export const getDoctors = (params) => {
+    return axios({
+        method: "get",
+        url: `${baseUrl}/doctors`,
+        params: params
     });
 }

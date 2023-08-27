@@ -1,11 +1,11 @@
 .carousel {
-    width: 80%;
+    width: 95%;
 
-    height: 50vh;
+    height: 100%;
 
     margin: 0 auto;
 
-    background-color: #f8f8f8;
+    background-color: rgb(167, 245, 167);
 
     @media (max-width: 768px) {
         width: 100%;

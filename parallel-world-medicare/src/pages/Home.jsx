@@ -35,6 +35,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../style_modules/ImageCarousel.css";
 import ImageCarousel from "../components/ImageCarousel";
+import "../style_modules/Home.css";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -96,176 +97,163 @@ export default function Home() {
     flex-direction: column;
   `;
 
-  const GradientSection = styled.section`
-    background: linear-gradient(
-      to bottom right,
-      #ff9900 0%,
-      #ff9900 20%,
-      #296d5c 20%,
-      #4caf50 100%
-    );
-  `;
-
   const images = { c1: "c1.jpeg", c2: "c2.jpeg", c3: "c3.jpeg" };
 
   return (
     <>
       <section id="hero">
-        <GradientSection style={{ width: "100%", height: "135vh" }}>
-          <HeroSection>
-            <HStack>
-              <HeroSectionLeftContent>
-                <Image
-                  src="woman_heart_gesture_cropped-removebg-preview.png"
-                  alt="woman_with_heart_gesture"
-                  boxSize="80%"
-                  marginLeft="10%"
-                ></Image>
-              </HeroSectionLeftContent>
-              <HeroSectionRightContent>
-                <Heading size="3xl">
-                  <span style={{ color: "#bdfadd" }}>Take Care of Your</span>
-                  <br />
-                  <span style={{ color: "white" }}>
-                    Health Anytime Anywhere.
-                  </span>
-                </Heading>
-                <p
-                  style={{
-                    width: "60%",
-                    color: "#6cae96",
-                    fontSize: "18px",
-                    marginTop: "1.5rem",
-                  }}
-                >
-                  Here at parallel world medicare our motto is to provide you
-                  with Healing that's Otherworldly.
-                </p>
-                <HStack spacing={4} marginTop={8} color="white">
-                  <Box w="20%">
-                    <VStack>
-                      <Box w="5rem">
-                        <Text fontSize="2xl">30+</Text>
-                      </Box>
-                      <Text fontSize="xs" maxWidth="5rem" color="#88c5a4">
-                        Years of Excellent
-                      </Text>
-                    </VStack>
-                  </Box>
-                  <Box w="20%">
-                    <VStack>
-                      <Box w="5rem">
-                        <Text fontSize="2xl">53k</Text>
-                      </Box>
-                      <Text fontSize="xs" maxWidth="5rem" color="#88c5a4">
-                        Case Completed
-                      </Text>
-                    </VStack>
-                  </Box>
-                  <Box w="20%">
-                    <VStack>
-                      <Box w="5rem">
-                        <Text fontSize="2xl">100%</Text>
-                      </Box>
-                      <Text fontSize="xs" maxWidth="5rem" color="#88c5a4">
-                        Client Satisfaction
-                      </Text>
-                    </VStack>
-                  </Box>
+        <HeroSection>
+          <HStack marginTop="1rem">
+            <HeroSectionLeftContent>
+              <Image
+                src="woman_heart_gesture_cropped-removebg-preview.png"
+                alt="woman_with_heart_gesture"
+                boxSize="80%"
+                marginLeft="10%"
+                // marginTop="1rem"
+              ></Image>
+            </HeroSectionLeftContent>
+            <HeroSectionRightContent>
+              <Heading size="3xl">
+                <span style={{ color: "purple" }}>Take Care of Your</span>
+                <br />
+                <span style={{ color: "white" }}>Health Anytime Anywhere.</span>
+              </Heading>
+              <p
+                style={{
+                  width: "60%",
+                  color: "gray",
+                  fontSize: "18px",
+                  marginTop: "1.5rem",
+                }}
+              >
+                Here at parallel world medicare our motto is to provide you with
+                Healing that's Otherworldly.
+              </p>
+              <HStack spacing={4} marginTop={8} color="white">
+                <Box w="20%">
+                  <VStack>
+                    <Box w="5rem">
+                      <Text fontSize="2xl">30+</Text>
+                    </Box>
+                    <Text fontSize="xs" maxWidth="5rem" color="gray">
+                      Years of Excellent
+                    </Text>
+                  </VStack>
+                </Box>
+                <Box w="20%">
+                  <VStack>
+                    <Box w="5rem">
+                      <Text fontSize="2xl">53k</Text>
+                    </Box>
+                    <Text fontSize="xs" maxWidth="5rem" color="gray">
+                      Case Completed
+                    </Text>
+                  </VStack>
+                </Box>
+                <Box w="20%">
+                  <VStack>
+                    <Box w="5rem">
+                      <Text fontSize="2xl">100%</Text>
+                    </Box>
+                    <Text fontSize="xs" maxWidth="5rem" color="gray">
+                      Client Satisfaction
+                    </Text>
+                  </VStack>
+                </Box>
+              </HStack>
+            </HeroSectionRightContent>
+          </HStack>
+        </HeroSection>
+        <Center marginTop={8}>
+          <Grid
+            h="50vh"
+            w="80%"
+            templateRows="repeat(2, 1fr)"
+            templateColumns="repeat(4,1fr)"
+            gap={1}
+          >
+            <GridItem bg="white" position="relative" className="grid-element">
+              <AbsoluteCenter>
+                <HStack>
+                  <FontAwesomeIcon icon={faUserDoctor} size="lg" />
+                  <Text color="#3d6c82">Doctors</Text>
                 </HStack>
-              </HeroSectionRightContent>
-            </HStack>
-          </HeroSection>
-          <Center marginTop={8}>
-            <Grid
-              h="50vh"
-              w="80%"
-              templateRows="repeat(2, 1fr)"
-              templateColumns="repeat(4,1fr)"
-              gap={1}
-            >
-              <GridItem bg="white" position="relative" className="grid-element">
-                <AbsoluteCenter>
-                  <HStack>
-                    <FontAwesomeIcon icon={faUserDoctor} size="lg" />
-                    <Text color="#3d6c82">Doctors</Text>
-                  </HStack>
-                </AbsoluteCenter>
-              </GridItem>
-              <GridItem bg="white" position="relative" className="grid-element">
-                <AbsoluteCenter>
-                  <HStack>
-                    <FontAwesomeIcon icon={faHospital} size="lg" />
-                    <Text color="#3d6c82">Hospitals</Text>
-                  </HStack>
-                </AbsoluteCenter>
-              </GridItem>
-              <GridItem bg="white" position="relative" className="grid-element">
-                <AbsoluteCenter>
-                  <HStack>
-                    <FontAwesomeIcon
-                      icon={faHouseMedical}
-                      size="lg"
-                    ></FontAwesomeIcon>
-                    <Text color="#3d6c82">Nursing Homes</Text>
-                  </HStack>
-                </AbsoluteCenter>
-              </GridItem>
-              <GridItem bg="white" position="relative" className="grid-element">
-                <AbsoluteCenter>
-                  <HStack>
-                    <FontAwesomeIcon icon={faEye} size="lg"></FontAwesomeIcon>
-                    <Text color="#3d6c82">Eye Care</Text>
-                  </HStack>
-                </AbsoluteCenter>
-              </GridItem>
-              <GridItem bg="white" position="relative" className="grid-element">
-                <AbsoluteCenter>
-                  <HStack>
-                    <FontAwesomeIcon
-                      icon={faDumbbell}
-                      size="lg"
-                    ></FontAwesomeIcon>
-                    <Text color="#3d6c82">Rehab</Text>
-                  </HStack>
-                </AbsoluteCenter>
-              </GridItem>
-              <GridItem bg="white" position="relative" className="grid-element">
-                <AbsoluteCenter>
-                  <HStack>
-                    <FontAwesomeIcon
-                      icon={faMagnifyingGlass}
-                      size="lg"
-                    ></FontAwesomeIcon>
-                    <Text color="#3d6c82">Dialysis Facilities</Text>
-                  </HStack>
-                </AbsoluteCenter>
-              </GridItem>
-              <GridItem bg="white" position="relative" className="grid-element">
-                <AbsoluteCenter>
-                  <HStack>
-                    <FontAwesomeIcon
-                      icon={faCalendarDays}
-                      size="lg"
-                    ></FontAwesomeIcon>
-                    <Text color="#3d6c82">Health Schedule</Text>
-                  </HStack>
-                </AbsoluteCenter>
-              </GridItem>
-              <GridItem bg="white" position="relative" className="grid-element">
-                <AbsoluteCenter>
-                  <HStack>
-                    <FontAwesomeIcon
-                      icon={faTruckMedical}
-                      size="lg"
-                    ></FontAwesomeIcon>
-                    <Text color="#3d6c82">Ambulance Call</Text>
-                  </HStack>
-                </AbsoluteCenter>
-              </GridItem>
-            </Grid>
-          </Center>
-        </GradientSection>
+              </AbsoluteCenter>
+            </GridItem>
+            <GridItem bg="white" position="relative" className="grid-element">
+              <AbsoluteCenter>
+                <HStack>
+                  <FontAwesomeIcon icon={faHospital} size="lg" />
+                  <Text color="#3d6c82">Hospitals</Text>
+                </HStack>
+              </AbsoluteCenter>
+            </GridItem>
+            <GridItem bg="white" position="relative" className="grid-element">
+              <AbsoluteCenter>
+                <HStack>
+                  <FontAwesomeIcon
+                    icon={faHouseMedical}
+                    size="lg"
+                  ></FontAwesomeIcon>
+                  <Text color="#3d6c82">Nursing Homes</Text>
+                </HStack>
+              </AbsoluteCenter>
+            </GridItem>
+            <GridItem bg="white" position="relative" className="grid-element">
+              <AbsoluteCenter>
+                <HStack>
+                  <FontAwesomeIcon icon={faEye} size="lg"></FontAwesomeIcon>
+                  <Text color="#3d6c82">Eye Care</Text>
+                </HStack>
+              </AbsoluteCenter>
+            </GridItem>
+            <GridItem bg="white" position="relative" className="grid-element">
+              <AbsoluteCenter>
+                <HStack>
+                  <FontAwesomeIcon
+                    icon={faDumbbell}
+                    size="lg"
+                  ></FontAwesomeIcon>
+                  <Text color="#3d6c82">Rehab</Text>
+                </HStack>
+              </AbsoluteCenter>
+            </GridItem>
+            <GridItem bg="white" position="relative" className="grid-element">
+              <AbsoluteCenter>
+                <HStack>
+                  <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    size="lg"
+                  ></FontAwesomeIcon>
+                  <Text color="#3d6c82">Dialysis Facilities</Text>
+                </HStack>
+              </AbsoluteCenter>
+            </GridItem>
+            <GridItem bg="white" position="relative" className="grid-element">
+              <AbsoluteCenter>
+                <HStack>
+                  <FontAwesomeIcon
+                    icon={faCalendarDays}
+                    size="lg"
+                  ></FontAwesomeIcon>
+                  <Text color="#3d6c82">Health Schedule</Text>
+                </HStack>
+              </AbsoluteCenter>
+            </GridItem>
+            <GridItem bg="white" position="relative" className="grid-element">
+              <AbsoluteCenter>
+                <HStack>
+                  <FontAwesomeIcon
+                    icon={faTruckMedical}
+                    size="lg"
+                  ></FontAwesomeIcon>
+                  <Text color="#3d6c82">Ambulance Call</Text>
+                </HStack>
+              </AbsoluteCenter>
+            </GridItem>
+          </Grid>
+        </Center>
       </section>
       <section id="help">
         <HelpSection>
@@ -481,7 +469,7 @@ export default function Home() {
           </Box>
           <Box
             marginTop="2rem"
-            w="80%"
+            w="70%"
             style={{ margin: "auto", backgroundColor: "#4AAC50" }}
             className="ImageCarousel"
           >
