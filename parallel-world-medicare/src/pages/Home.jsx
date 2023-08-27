@@ -341,12 +341,14 @@ export default function Home() {
               </HStack>
             </HelpSectionLeftContent>
             <HelpSectionRightContent>
-              <Image
-                src="womenFinerPoint-no-background.png"
-                w="70%"
-                h="100%"
-                marginTop="5rem"
-              ></Image>
+              <Center>
+                <Image
+                  src="womenFinerPoint-no-background.png"
+                  w="70%"
+                  h="100%"
+                  marginTop="5rem"
+                ></Image>
+              </Center>
             </HelpSectionRightContent>
           </HStack>
         </HelpSection>
@@ -355,10 +357,9 @@ export default function Home() {
         <Center>
           <HealthInfoSection>
             <HealthInfoSectionLeftContent>
-              <HStack spacing="2rem">
+              <Center>
                 <Image src="healthInfoSectionImage-no-background.png"></Image>
-                <VStack></VStack>
-              </HStack>
+              </Center>
             </HealthInfoSectionLeftContent>
             <HealthInfoSectionRightContent>
               <VStack align="start" spacing={6}>
@@ -480,8 +481,8 @@ export default function Home() {
           </Box>
           <Box
             marginTop="2rem"
-            w="60%"
-            style={{ margin: "auto" }}
+            w="80%"
+            style={{ margin: "auto", backgroundColor: "#4AAC50" }}
             className="ImageCarousel"
           >
             <ImageCarousel images={images}></ImageCarousel>

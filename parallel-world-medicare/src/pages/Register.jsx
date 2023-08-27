@@ -4,9 +4,20 @@ import {
   faCalendarTimes,
   faInfoCircle,
   faX,
+  faEye,
+  faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Heading,
+  Center,
+  InputGroup,
+  InputRightElement,
+} from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink, LinkProps } from "@chakra-ui/react";
 import axios from "../api/axios";
@@ -15,7 +26,6 @@ import { addUser } from "../api/apiRequests";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,14}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,15}$/;
-const REGISTER_URL = `/users`;
 
 const Register = () => {
   const userRef = useRef();
@@ -36,6 +46,12 @@ const Register = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
+  const [show, setShow] = useState(false);
+  const handleShowPasswordClick = () => setShow(!show);
+
+  const [confirmShow, setConfirmShow] = useState(false);
+  const handleConfirmShowPasswordClick = () => setConfirmShow(!confirmShow);
+
   useEffect(() => {
     userRef.current.focus();
   }, []);
@@ -43,7 +59,7 @@ const Register = () => {
   useEffect(() => {
     const result = USER_REGEX.test(user);
     console.log(result);
-    console.log(user);
+    // console.log(user);
     setValidName(result);
   }, [user]);
 
@@ -110,7 +126,7 @@ const Register = () => {
           </p>
         </section>
       ) : (
-        <section className="formsection" style={{ marginTop: "2rem" }}>
+        <section className="form-section" style={{ marginTop: "2rem" }}>
           <p
             ref={errRef}
             className={errMsg ? "errMsg" : "offscreen"}
@@ -118,20 +134,22 @@ const Register = () => {
           >
             {errMsg}
           </p>
-          <h1>Register Form</h1>
+          <Center>
+            <Heading as="b" style={{ color: "purple" }}>
+              Register Form
+            </Heading>
+          </Center>
           <form onSubmit={handleSubmit}>
             <FormControl>
-              <FormLabel>
-                {"Username: "}
+              <FormLabel color="black" marginTop="2rem">
+                Username:
                 <span className={validName ? "valid" : "hide"}>
-                  {/* <i class="fa-solid fa-check" style={{ color: "#00ff00" }}></i> */}
                   <FontAwesomeIcon
                     icon={faCheck}
                     style={{ color: "green" }}
                   ></FontAwesomeIcon>
                 </span>
                 <span className={validName || !user ? "hide" : "invalid"}>
-                  {/* <i class="fa-solid fa-x" style={{ color: "#ff0000" }}></i> */}
                   <FontAwesomeIcon
                     icon={faX}
                     style={{ color: "red" }}
@@ -141,6 +159,7 @@ const Register = () => {
               <Input
                 type="text"
                 id="username"
+                placeholder="Enter Username"
                 ref={userRef}
                 autoComplete="off"
                 onChange={(e) => {
@@ -165,8 +184,7 @@ const Register = () => {
                 <br />
                 letters, numbers, underscores, hyphens allowed.
               </p>
-              {/* password field code */}
-              <FormLabel>
+              <FormLabel color="black">
                 Password:
                 <span className={validPwd ? "valid" : "hide"}>
                   <FontAwesomeIcon
@@ -181,18 +199,35 @@ const Register = () => {
                   ></FontAwesomeIcon>
                 </span>
               </FormLabel>
-              <Input
-                type="password"
-                id="password"
-                onChange={(e) => {
-                  setPwd(e.target.value);
-                }}
-                required
-                aria-invalid={validPwd ? "false" : "true"}
-                aria-describedby="pwdnote"
-                onFocus={() => setPwdFocus(true)}
-                onBlur={() => setPwdFocus(false)}
-              ></Input>
+              <InputGroup>
+                <Input
+                  type={show ? "text" : "password"}
+                  placeholder="Enter Password"
+                  id="password"
+                  onChange={(e) => {
+                    setPwd(e.target.value);
+                  }}
+                  required
+                  aria-invalid={validPwd ? "false" : "true"}
+                  aria-describedby="pwdnote"
+                  onFocus={() => setPwdFocus(true)}
+                  onBlur={() => setPwdFocus(false)}
+                ></Input>
+                <InputRightElement w="23%" marginBottom={2}>
+                  <Button
+                    h="1.75rem"
+                    variant="outline"
+                    size="sm"
+                    onClick={handleShowPasswordClick}
+                    leftIcon={
+                      <FontAwesomeIcon icon={show ? faEyeSlash : faEye} />
+                    }
+                    style={{ marginBottom: "1rem", marginRight: "0.5rem" }}
+                  >
+                    {show ? "Hide" : "show"}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
               <p
                 id="pwdnote"
                 className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
@@ -210,8 +245,7 @@ const Register = () => {
                 <span aria-label="dollar sign">$</span>
                 <span aria-label="percent">%</span>
               </p>
-              {/* password matching code */}
-              <FormLabel>
+              <FormLabel color="black">
                 Confirm Password:
                 <span className={validMatch && matchPwd ? "valid" : "hide"}>
                   <FontAwesomeIcon
@@ -226,18 +260,37 @@ const Register = () => {
                   ></FontAwesomeIcon>
                 </span>
               </FormLabel>
-              <Input
-                type="password"
-                id="confirm_pwd"
-                onChange={(e) => {
-                  setMatchPwd(e.target.value);
-                }}
-                required
-                aria-invalid={validMatch ? "false" : "true"}
-                aria-describedby="confirmnote"
-                onFocus={() => setMatchFocus(true)}
-                onBlur={() => setMatchFocus(false)}
-              ></Input>
+              <InputGroup>
+                <Input
+                  type="password"
+                  id="confirm_pwd"
+                  placeholder="Enter Password"
+                  onChange={(e) => {
+                    setMatchPwd(e.target.value);
+                  }}
+                  required
+                  aria-invalid={validMatch ? "false" : "true"}
+                  aria-describedby="confirmnote"
+                  onFocus={() => setMatchFocus(true)}
+                  onBlur={() => setMatchFocus(false)}
+                ></Input>
+                <InputRightElement w="23%" marginBottom={2}>
+                  <Button
+                    h="1.75rem"
+                    variant="outline"
+                    size="sm"
+                    onClick={handleConfirmShowPasswordClick}
+                    leftIcon={
+                      <FontAwesomeIcon
+                        icon={confirmShow ? faEyeSlash : faEye}
+                      />
+                    }
+                    style={{ marginBottom: "1rem", marginRight: "0.5rem" }}
+                  >
+                    {confirmShow ? "Hide" : "show"}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
               <p
                 id="confirmnote"
                 className={
@@ -249,7 +302,12 @@ const Register = () => {
               </p>
               <Button
                 type="submit"
-                disabled={!validName || !validPwd || !validMatch ? true : false}
+                w="100%"
+                variant="solid"
+                className="SignUp-btn"
+                isDisabled={
+                  !validName || !validPwd || !validMatch ? true : false
+                }
               >
                 Sign Up
               </Button>
@@ -259,7 +317,11 @@ const Register = () => {
             Already Registered?
             <br />
             <span className="line">
-              <ChakraLink as={ReactRouterLink} to="/login">
+              <ChakraLink
+                as={ReactRouterLink}
+                to="/login"
+                style={{ color: "blue" }}
+              >
                 Login
               </ChakraLink>
             </span>
