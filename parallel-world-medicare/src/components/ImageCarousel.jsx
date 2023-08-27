@@ -1,12 +1,13 @@
 import { Carousel } from "react-responsive-carousel";
 import { Text, HStack, AbsoluteCenter, Spacer } from "@chakra-ui/react";
+import "../style_modules/ImageCarousel.css";
 
 const ImageCarousel = ({ images }) => {
   const { c1, c2, c3 } = { ...images };
   return (
     <Carousel showThumbs={false}>
-      <div bg="grey">
-        <HStack w="100%" h="16rem" bg="#4AAC50">
+      <div className="carousel">
+        <HStack w="100%" h="16rem">
           <img src={c1} alt="Img 1" />
           <Spacer />
           <Text fontSize="sm" as="b">
@@ -20,8 +21,8 @@ const ImageCarousel = ({ images }) => {
           </Text>
         </HStack>
       </div>
-      <div>
-        <HStack w="100%" h="16rem" bg="#4AAC50">
+      <div className="carousel">
+        <HStack w="100%" h="16rem">
           <img src={c2} alt="Img 2" />
           <Spacer />
           <Text fontSize="sm" as="b">

@@ -1,0 +1,24 @@
+.healthCare__navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 3rem;
+}
+
+.healthCare__navbar-links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.healthCare__navbar_logo {
+    margin-right: 2rem;
+}
+
+.healthCare__navbar-login {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

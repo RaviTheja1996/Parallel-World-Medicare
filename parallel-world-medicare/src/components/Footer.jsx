@@ -23,6 +23,9 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
+import { Link as ReactRouterLink } from "react-router-dom";
+import { Link as ChakraLink } from "@chakra-ui/react";
+
 export const Footer = () => {
   return (
     <section id="footer" style={{ marginTop: "4rem" }}>
@@ -67,7 +70,7 @@ export const Footer = () => {
               </Flex>
             </VStack>
           </GridItem>
-          <GridItem>
+          <GridItem bgColor="white">
             <Grid
               templateColumns="repeat(2, 1fr)"
               templateRows="repeat(2, 1fr)"
@@ -87,7 +90,15 @@ export const Footer = () => {
               <GridItem>
                 <VStack spacing={4} align="start">
                   <Heading fontSize="2xl">Learn More</Heading>
-                  <Text fontSize="xs">About Us</Text>
+                  <Text fontSize="xs">
+                    <ChakraLink
+                      as={ReactRouterLink}
+                      to="/about"
+                      style={{ color: "blue" }}
+                    >
+                      About
+                    </ChakraLink>
+                  </Text>
                   <Text fontSize="xs">Subscribe</Text>
                   <Text fontSize="xs">Contact Us</Text>
                 </VStack>

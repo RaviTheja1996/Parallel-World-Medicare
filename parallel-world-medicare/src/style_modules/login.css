@@ -62,9 +62,9 @@ button {
     margin-top: 1rem;
 }
 
-/* button {
-    padding: 0.5rem;
-} */
+body {
+    background-color: rgb(236, 196, 251) !important;
+}
 
 .Login-btn {
     margin-top: 2rem !important;
