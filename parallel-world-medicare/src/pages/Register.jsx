@@ -19,6 +19,7 @@ import {
   InputRightElement,
   Text,
   VStack,
+  useToast,
 } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink, LinkProps } from "@chakra-ui/react";
@@ -32,6 +33,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,15}$/;
 const Register = () => {
   const userRef = useRef();
   const errRef = useRef();
+  const toast = useToast();
 
   const [user, setUser] = useState("");
   const [validName, setValidName] = useState(false);
@@ -102,6 +104,14 @@ const Register = () => {
       // console.log(response.data);
       // console.log(JSON.stringify(response));
       addUser({ user, pwd });
+      toast({
+        title: "Registration Successful",
+        description: "Details are correctly provided",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
       setSuccess(true);
       // clear the input field values
     } catch (err) {
