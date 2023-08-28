@@ -257,7 +257,15 @@ export default function Home() {
       </section>
       <section id="help">
         <HelpSection>
-          <HStack>
+          <HStack
+            style={{
+              border: "3px solid tomato",
+              padding: "1rem",
+              borderRadius: "30px",
+              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+              backgroundColor: "rgb(230, 230, 230)",
+            }}
+          >
             <HelpSectionLeftContent>
               <Heading as="b">
                 <span style={{ color: "#084560" }}>Our</span>
@@ -343,7 +351,15 @@ export default function Home() {
       </section>
       <section id="healthInfo">
         <Center>
-          <HealthInfoSection>
+          <HealthInfoSection
+            style={{
+              border: "3px solid tomato",
+              padding: "1rem",
+              borderRadius: "30px",
+              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+              backgroundColor: "rgb(235, 235, 235)",
+            }}
+          >
             <HealthInfoSectionLeftContent>
               <Center>
                 <Image src="healthInfoSectionImage-no-background.png"></Image>
@@ -379,12 +395,21 @@ export default function Home() {
           </HealthInfoSection>
         </Center>
       </section>
-      <section id="register" style={{ marginTop: "1rem" }}>
+      <section id="register" style={{ marginTop: "2rem" }}>
         <Center>
           <Box
             w="80%"
             m="auto"
-            style={{ display: "flex", flexDirection: "column", gap: "3rem" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "3rem",
+              border: "3px solid tomato",
+              padding: "1rem",
+              borderRadius: "30px",
+              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+              backgroundColor: "rgb(230, 230, 230)",
+            }}
           >
             <HStack>
               <VStack spacing={4} w="65%" align="start">
@@ -453,8 +478,20 @@ export default function Home() {
           </Box>
         </Center>
       </section>
-      <section id="About" style={{ marginTop: "6rem" }}>
-        <Flex direction="column" align="center">
+      <section id="About" style={{ marginTop: "3rem" }}>
+        <Flex
+          direction="column"
+          align="center"
+          w="80%"
+          mx="auto"
+          style={{
+            border: "3px solid tomato",
+            padding: "1rem",
+            borderRadius: "30px",
+            boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+            backgroundColor: "rgb(230, 230, 230)",
+          }}
+        >
           <Box w="60%">
             <Center>
               <Text fontSize="3xl" fontWeight="bold" mb={4}>
@@ -469,7 +506,7 @@ export default function Home() {
           </Box>
           <Box
             marginTop="2rem"
-            w="70%"
+            w="98%"
             style={{ margin: "auto", backgroundColor: "#4AAC50" }}
             className="ImageCarousel"
           >
