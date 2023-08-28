@@ -17,6 +17,8 @@ import {
   Center,
   InputGroup,
   InputRightElement,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink, LinkProps } from "@chakra-ui/react";
@@ -118,12 +120,22 @@ const Register = () => {
     <>
       {success ? (
         <section className="formsection" style={{ marginTop: "2rem" }}>
-          <h1>Success!</h1>
-          <p>
-            <ChakraLink as={ReactRouterLink} to="/login">
-              Login
-            </ChakraLink>
-          </p>
+          <Center>
+            <VStack spacing={6} align="center">
+              <Text fontSize="3xl" color="purple">
+                Success!
+              </Text>
+              <Text>
+                <ChakraLink
+                  as={ReactRouterLink}
+                  to="/login"
+                  style={{ color: "blue" }}
+                >
+                  Login
+                </ChakraLink>
+              </Text>
+            </VStack>
+          </Center>
         </section>
       ) : (
         <section className="form-section" style={{ marginTop: "2rem" }}>
@@ -262,7 +274,7 @@ const Register = () => {
               </FormLabel>
               <InputGroup>
                 <Input
-                  type="password"
+                  type={confirmShow ? "text" : "password"}
                   id="confirm_pwd"
                   placeholder="Enter Password"
                   onChange={(e) => {
