@@ -16,6 +16,8 @@ import { HospitalReducer, initState } from "../reducers/HospitalReducer";
 import LoadingSkeleton from "../components/LoadingSkeleton";
 import ErrorMessage from "../components/ErrorMessage";
 
+import { MdArrowDropDown } from "react-icons/md";
+
 export default function Hospitals() {
   const [state, dispatch] = useReducer(HospitalReducer, initState);
   const [page, setPage] = useState(1);
@@ -65,12 +67,15 @@ export default function Hospitals() {
           <Select
             name="sort"
             value={sortOrder}
+            icon={<MdArrowDropDown />}
+            placeholder="Sort by fees : Order"
             onChange={(e) => {
               setSortOrder(e.target.value);
               setPage(1);
             }}
+            bg="tomato"
+            color="black"
           >
-            <option value="">Sort by fees : Order</option>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </Select>
