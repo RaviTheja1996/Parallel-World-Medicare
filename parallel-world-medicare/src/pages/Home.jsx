@@ -13,6 +13,7 @@ import {
   AbsoluteCenter,
   Button,
   Spacer,
+  Stack,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -60,7 +61,7 @@ export default function Home() {
   const HelpSection = styled.section`
     font-family: Nunito;
     display: flex;
-    height: 90vh;
+    height: auto;
     align-items: center;
     width: 80%;
     margin: auto;
@@ -80,7 +81,7 @@ export default function Home() {
   const HealthInfoSection = styled.section`
     font-family: Nunito;
     display: flex;
-    height: 90vh;
+    height: auto;
     align-items: center;
     width: 80%;
     margin: auto;
@@ -103,7 +104,11 @@ export default function Home() {
     <>
       <section id="hero">
         <HeroSection>
-          <HStack marginTop="1rem">
+          <Flex
+            direction={{ base: "column", md: "row" }}
+            alignItems="center"
+            justifyContent="center"
+          >
             <HeroSectionLeftContent>
               <Image
                 src="woman_heart_gesture_cropped-removebg-preview.png"
@@ -114,24 +119,33 @@ export default function Home() {
               ></Image>
             </HeroSectionLeftContent>
             <HeroSectionRightContent>
-              <Heading size="3xl">
-                <span style={{ color: "purple" }}>Take Care of Your</span>
-                <br />
-                <span style={{ color: "white" }}>Health Anytime Anywhere.</span>
-              </Heading>
-              <p
-                style={{
-                  width: "60%",
-                  color: "gray",
-                  fontSize: "18px",
-                  marginTop: "1.5rem",
-                }}
-              >
-                Here at parallel world medicare our motto is to provide you with
-                Healing that's Otherworldly.
-              </p>
-              <HStack spacing={4} marginTop={8} color="white">
-                <Box w="20%">
+              <VStack align={{ base: "center", md: "start", lg: "start" }}>
+                <Heading size="3xl">
+                  <span style={{ color: "purple" }}>Take Care of Your</span>
+                  <br />
+                  <span style={{ color: "white" }}>
+                    Health Anytime Anywhere.
+                  </span>
+                </Heading>
+                <p
+                  style={{
+                    width: "60%",
+                    color: "gray",
+                    fontSize: "18px",
+                    marginTop: "1.5rem",
+                  }}
+                >
+                  Here at parallel world medicare our motto is to provide you
+                  with Healing that's Otherworldly.
+                </p>
+                <Stack
+                  direction={["row"]}
+                  spacing={4}
+                  marginTop={8}
+                  color="white"
+                  w="100%"
+                  justifyContent={{ base: "center" }}
+                >
                   <VStack>
                     <Box w="5rem">
                       <Text fontSize="2xl">30+</Text>
@@ -140,8 +154,6 @@ export default function Home() {
                       Years of Excellent
                     </Text>
                   </VStack>
-                </Box>
-                <Box w="20%">
                   <VStack>
                     <Box w="5rem">
                       <Text fontSize="2xl">53k</Text>
@@ -150,8 +162,6 @@ export default function Home() {
                       Case Completed
                     </Text>
                   </VStack>
-                </Box>
-                <Box w="20%">
                   <VStack>
                     <Box w="5rem">
                       <Text fontSize="2xl">100%</Text>
@@ -160,17 +170,22 @@ export default function Home() {
                       Client Satisfaction
                     </Text>
                   </VStack>
-                </Box>
-              </HStack>
+                </Stack>
+              </VStack>
             </HeroSectionRightContent>
-          </HStack>
+          </Flex>
         </HeroSection>
         <Center marginTop={8}>
           <Grid
-            h="50vh"
+            h="70vh"
             w="80%"
-            templateRows="repeat(2, 1fr)"
-            templateColumns="repeat(4,1fr)"
+            templateRows="auto"
+            templateColumns={{
+              base: "1fr",
+              sm: "repeat(2,1fr)",
+              md: "repeat(3,1fr)",
+              lg: "repeat(4,1fr)",
+            }}
             gap={1}
           >
             <GridItem bg="white" position="relative" className="grid-element">
@@ -257,7 +272,8 @@ export default function Home() {
       </section>
       <section id="help">
         <HelpSection>
-          <HStack
+          <Flex
+            direction={{ lg: "row", md: "column", base: "column" }}
             style={{
               border: "3px solid tomato",
               padding: "1rem",
@@ -293,7 +309,12 @@ export default function Home() {
                 as treatment outcomes, patient satisfaction, and safety
                 incidents.
               </Text>
-              <HStack marginTop="1.5rem" spacing="20%">
+              <Flex
+                marginTop="1.5rem"
+                spacing="20%"
+                direction={{ base: "column", md: "row", lg: "row" }}
+                gap={4}
+              >
                 <VStack spacing={4} align="start">
                   <HStack>
                     <ArrowForwardIcon color="orange" />
@@ -334,7 +355,7 @@ export default function Home() {
                     </Text>
                   </HStack>
                 </VStack>
-              </HStack>
+              </Flex>
             </HelpSectionLeftContent>
             <HelpSectionRightContent>
               <Center>
@@ -346,7 +367,7 @@ export default function Home() {
                 ></Image>
               </Center>
             </HelpSectionRightContent>
-          </HStack>
+          </Flex>
         </HelpSection>
       </section>
       <section id="healthInfo">
@@ -360,38 +381,40 @@ export default function Home() {
               backgroundColor: "rgb(235, 235, 235)",
             }}
           >
-            <HealthInfoSectionLeftContent>
-              <Center>
-                <Image src="healthInfoSectionImage-no-background.png"></Image>
-              </Center>
-            </HealthInfoSectionLeftContent>
-            <HealthInfoSectionRightContent>
-              <VStack align="start" spacing={6}>
-                <Heading as="h1" style={{ fontWeight: "bold" }}>
-                  <span style={{ color: "#084560" }}>We </span>
-                  <span style={{ color: "#ff8a01" }}>Hold Everything </span>
-                  <br />
-                  <span style={{ color: "#084560" }}>Close to Health.</span>
-                </Heading>
-                <Text color="#084560">
-                  Key components of a healthcare quality system include the
-                  establishment of evidence-based protocols and guidelines,
-                  rigorous monitoring and assessment mechanisms, and a culture
-                  of open communication and learning
-                </Text>
-                <Text as="b">
-                  <span style={{ color: "#ff8a01", fontSize: "1.2rem" }}>
-                    450{" "}
-                  </span>{" "}
-                  <span style={{ color: "#084560", fontSize: "1.2rem" }}>
-                    M+{" "}
-                  </span>
-                  <span style={{ color: "#084560", fontSize: "0.8rem" }}>
-                    Our Agent.
-                  </span>
-                </Text>
-              </VStack>
-            </HealthInfoSectionRightContent>
+            <Flex direction={{ base: "column", md: "column", lg: "row" }}>
+              <HealthInfoSectionLeftContent>
+                <Center>
+                  <Image src="healthInfoSectionImage-no-background.png"></Image>
+                </Center>
+              </HealthInfoSectionLeftContent>
+              <HealthInfoSectionRightContent>
+                <VStack align="start" spacing={6}>
+                  <Heading as="h1" style={{ fontWeight: "bold" }}>
+                    <span style={{ color: "#084560" }}>We </span>
+                    <span style={{ color: "#ff8a01" }}>Hold Everything </span>
+                    <br />
+                    <span style={{ color: "#084560" }}>Close to Health.</span>
+                  </Heading>
+                  <Text color="#084560">
+                    Key components of a healthcare quality system include the
+                    establishment of evidence-based protocols and guidelines,
+                    rigorous monitoring and assessment mechanisms, and a culture
+                    of open communication and learning
+                  </Text>
+                  <Text as="b">
+                    <span style={{ color: "#ff8a01", fontSize: "1.2rem" }}>
+                      450{" "}
+                    </span>{" "}
+                    <span style={{ color: "#084560", fontSize: "1.2rem" }}>
+                      M+{" "}
+                    </span>
+                    <span style={{ color: "#084560", fontSize: "0.8rem" }}>
+                      Our Agent.
+                    </span>
+                  </Text>
+                </VStack>
+              </HealthInfoSectionRightContent>
+            </Flex>
           </HealthInfoSection>
         </Center>
       </section>
@@ -411,7 +434,10 @@ export default function Home() {
               backgroundColor: "rgb(230, 230, 230)",
             }}
           >
-            <HStack>
+            <Flex
+              direction={{ base: "column", md: "column", lg: "row" }}
+              gap={8}
+            >
               <VStack spacing={4} w="65%" align="start">
                 <Text as="b" fontSize="4xl">
                   <span style={{ color: "#084560" }}>The Future of</span>
@@ -426,7 +452,9 @@ export default function Home() {
                   fundamental to a successful healthcare quality system.
                 </Text>
               </VStack>
-              <Spacer />
+              {/* <Spacer /> */}
+              {/* <Box> */}
+              {/* <Center> */}
               <Button
                 className="button-element"
                 bg="#ff8a01"
@@ -435,12 +463,19 @@ export default function Home() {
                 onClick={() => {
                   navigate("/register");
                 }}
-                marginRight="4rem"
+                mx="auto"
+                my="auto"
               >
                 Register Now
               </Button>
-            </HStack>
-            <Grid templateColumns="repeat(3, 1fr)" gap={1} h="30vh">
+              {/* </Center> */}
+              {/* </Box> */}
+            </Flex>
+            <Grid
+              templateColumns={{ lg: "repeat(3,1fr)", md: "repeat(2,1fr)" }}
+              gap={2}
+              h="30vh"
+            >
               <GridItem
                 bg="#f8f8f8"
                 position="relative"

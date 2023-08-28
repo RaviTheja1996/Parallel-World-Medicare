@@ -30,7 +30,15 @@ export const Footer = () => {
   return (
     <section id="footer" style={{ marginTop: "4rem" }}>
       <Center>
-        <Grid templateColumns="repeat(2, 1fr)" color="#084560" w="90%">
+        <Grid
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            md: "repeat(1, 1fr)",
+            lg: "repeat(2, 1fr)",
+          }}
+          color="#084560"
+          w="90%"
+        >
           <GridItem bg="#f8f8f8" p="4rem">
             <VStack spacing={4} align="start">
               <Heading as="b">Parallel World Medicare</Heading>
@@ -72,8 +80,12 @@ export const Footer = () => {
           </GridItem>
           <GridItem bgColor="white">
             <Grid
-              templateColumns="repeat(2, 1fr)"
-              templateRows="repeat(2, 1fr)"
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                md: "repeat(2, 1fr)",
+                lg: "repeat(2, 1fr)",
+              }}
+              templateRows="auto"
               p="3rem"
               gap={6}
               marginTop="2rem"

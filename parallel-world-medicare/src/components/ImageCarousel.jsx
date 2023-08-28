@@ -1,5 +1,5 @@
 import { Carousel } from "react-responsive-carousel";
-import { Text, HStack, AbsoluteCenter, Spacer } from "@chakra-ui/react";
+import { Text, HStack, AbsoluteCenter, Spacer, Flex } from "@chakra-ui/react";
 import "../style_modules/ImageCarousel.css";
 
 const ImageCarousel = ({ images }) => {
@@ -7,9 +7,13 @@ const ImageCarousel = ({ images }) => {
   return (
     <Carousel showThumbs={false}>
       <div className="carousel">
-        <HStack w="100%" h="16rem">
+        <Flex
+          w="100%"
+          h={{ base: "80vh", lg: "60vh", md: "80vh" }}
+          gap={4}
+          direction={{ lg: "row", md: "column", base: "column" }}
+        >
           <img src={c1} alt="Img 1" />
-          <Spacer />
           <Text fontSize="sm" as="b">
             I am thrilled to share my incredibly positive experience with
             Parallel World Medicare! This healthcare website has truly
@@ -19,12 +23,16 @@ const ImageCarousel = ({ images }) => {
             about different medical conditions and treatment options, Parallel
             World Medicare has exceeded all my expectations.
           </Text>
-        </HStack>
+        </Flex>
       </div>
       <div className="carousel">
-        <HStack w="100%" h="16rem">
-          <img src={c2} alt="Img 2" />
-          <Spacer />
+        <Flex
+          w="100%"
+          h={{ base: "80vh", lg: "60vh", md: "80vh" }}
+          gap={4}
+          direction={{ lg: "row", md: "column", base: "column" }}
+        >
+          <img src={c3} alt="Img 2" />
           <Text fontSize="sm" as="b">
             At Parallel World Medicare, our team of doctors is unparalleled in
             their expertise, compassion, and dedication to patient well-being.
@@ -35,7 +43,7 @@ const ImageCarousel = ({ images }) => {
             that every patient can find the right medical professional to
             address their unique needs.
           </Text>
-        </HStack>
+        </Flex>
       </div>
     </Carousel>
   );

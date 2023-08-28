@@ -1,6 +1,10 @@
 #hero {
-    background: linear-gradient(47deg, rgba(230, 255, 0, 1) 9%, rgba(130, 238, 147, 1) 30%, rgba(0, 212, 87, 1) 52%);
-    height: 140vh;
+    background: linear-gradient(47deg,
+            rgba(230, 255, 0, 1) 9%,
+            rgba(130, 238, 147, 1) 30%,
+            rgba(0, 212, 87, 1) 52%);
+    height: auto;
+    padding: 2rem 0;
 }
 
 .scale-up-center {
