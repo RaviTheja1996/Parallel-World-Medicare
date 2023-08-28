@@ -9,6 +9,7 @@ import {
   Heading,
   InputGroup,
   InputRightElement,
+  useToast,
 } from "@chakra-ui/react";
 import { Link as ReactRouterLink, useNavigate } from "react-router-dom";
 import { Link as ChakraLink, LinkProps } from "@chakra-ui/react";
@@ -32,6 +33,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,15}$/;
 
 export const Login = () => {
   const { login } = useContext(AuthContext);
+  const toast = useToast();
 
   const userRef = useRef();
   const errRef = useRef();
@@ -85,6 +87,14 @@ export const Login = () => {
     if (isValidCred) {
       console.log("authenticated");
       login(username);
+      toast({
+        title: "Login Successful",
+        description: "Credentials are correct",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
       navigate("/");
     }
   }
