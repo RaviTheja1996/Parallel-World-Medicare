@@ -144,7 +144,7 @@ export default function Home() {
                   marginTop={8}
                   color="white"
                   w="100%"
-                  justifyContent={{ base: "center" }}
+                  justifyContent={{ base: "center", md: "start" }}
                 >
                   <VStack>
                     <Box w="5rem">
