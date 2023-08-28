@@ -55,6 +55,7 @@ Tag line : Healing That's Otherworldly.
    npm install react-icons
    npm install react-router-dom@6
    npm install babel-plugin-macros
+   npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
    ```
 
 4. start the frontend server:
