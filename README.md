@@ -24,10 +24,15 @@ Tag line : Healing That's Otherworldly.
 ![Screenshot 6](https://github.com/RaviTheja1996/dandy-religion-8340/blob/main/parallel-world-medicare/screenshots/S-6.png) -->
 
 ![Screenshot 1](./parallel-world-medicare/screenshots/S-1.png)
+
 ![Screenshot 2](./parallel-world-medicare/screenshots/S-2.png)
+
 ![Screenshot 3](./parallel-world-medicare/screenshots/S-3.png)
+
 ![Screenshot 4](./parallel-world-medicare/screenshots/S-4.png)
+
 ![Screenshot 5](./parallel-world-medicare/screenshots/S-5.png)
+
 ![Screenshot 6](./parallel-world-medicare/screenshots/S-6.png)
 
 ## Installation
