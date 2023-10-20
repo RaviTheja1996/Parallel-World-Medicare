@@ -2,6 +2,9 @@
 
 Tag line : Healing That's Otherworldly.
 
+# Description
+This is a health care website where users can login and browse through all the facilities and services we provide related to health care. The user can also avail them through the management system of the website
+
 ## Table of Contents
 
 - [This is a React Project built for practice purposes the website is on theme of and medical care site it consists basic functionality but more focus is on UI the project contains Home page, About Page, Doctors page, Hospitals Page, Register Page and Login Page.](#description)
